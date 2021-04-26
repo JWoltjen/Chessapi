@@ -16,8 +16,8 @@ function App() {
 
   useEffect(() => {
     game.current = new Chess(); 
-  })
-  
+  }, [])
+
   return (
     <div className="App" style={container}>
       <ChessBoard position={fen}/>
