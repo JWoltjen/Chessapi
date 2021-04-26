@@ -28,18 +28,31 @@ function App() {
     setFen(game.current.fen())
   }
 
+  const resetGame = () => {
+    game.current.clear(); 
+    game.current.reset(); 
+    setFen('start')
+  }
+
+  const calcWidth = ({screenWidth, screenHeight}) => {
+    return 900
+  }
+
   return (
-    <div className="App" style={container}>
-      {
+  <>
+    {
         game.current && game.current.game_over() ? <div style={
           {textAlign: 'center'}
-        }><h1>Game Over</h1></div>: <span></span>
+        }><h1>Game Over</h1><button onClick={resetGame}>Play Again?</button></div>: <span></span>
       }
+    <div className="App" style={container}>
       <ChessBoard 
           position={fen}
           onDrop={onDrop}
+          calcWidth={calcWidth}
           />
     </div>
+  </>
   );
 }
 
