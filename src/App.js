@@ -18,9 +18,19 @@ function App() {
     game.current = new Chess(); 
   }, [])
 
+  const onDrop = ({sourceSquare, targetSquare}) => {
+    let move = game.current.move({
+      from: sourceSquare, 
+      to: targetSquare
+    })
+  }
+
   return (
     <div className="App" style={container}>
-      <ChessBoard position={fen}/>
+      <ChessBoard 
+          position={fen}
+          onDrop={onDrop}
+          />
     </div>
   );
 }
