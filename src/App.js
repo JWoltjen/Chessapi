@@ -23,6 +23,9 @@ function App() {
       from: sourceSquare, 
       to: targetSquare
     })
+    if(move === null) return; 
+
+    setFen(game.current.fen())
   }
 
   return (
