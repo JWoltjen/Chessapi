@@ -30,6 +30,11 @@ function App() {
 
   return (
     <div className="App" style={container}>
+      {
+        game.current && game.current.game_over() ? <div style={
+          {textAlign: 'center'}
+        }><h1>Game Over</h1></div>: <span></span>
+      }
       <ChessBoard 
           position={fen}
           onDrop={onDrop}
